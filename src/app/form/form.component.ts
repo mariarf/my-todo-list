@@ -16,6 +16,12 @@ export class FormComponent implements OnInit {
     if(this.task.selectedEdit != null){
       this.task.editTask(this.task.selectedEdit);
     }
+    this.task.selectedEdit = {
+      id: null,
+      task: '',
+      state: '',
+      timestamp: '',
+    };
   }
 
 }
