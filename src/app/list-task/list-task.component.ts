@@ -18,7 +18,7 @@ export class ListTaskComponent {
   constructor(public taskService: TaskService) { }
 
   ngOnInit(): void {
-    this.taskService.getNotDoneTasks().subscribe(res => this.dataSource.data = res);
+    this.taskService.getPendingTasks().subscribe(res => this.dataSource.data = res);
   }
 
   ngAfterViewInit() {
@@ -34,9 +34,9 @@ export class ListTaskComponent {
     this.taskService.deleteTask(id);
   }
 
-  onDone(element){
-    element.state = 'Done'
-    this.taskService.setDone(element);
+  inProcess(element){
+    element.state = 'In process'
+    this.taskService.setState(element);
 
   }
 

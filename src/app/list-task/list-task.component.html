@@ -28,8 +28,9 @@
       <button mat-flat-button color="warn" (click)="onDelete(element.id)">
         <mat-icon aria-hidden="false" aria-label="delete icon">delete</mat-icon>
       </button>&nbsp;
-      <button mat-flat-button color="primary" (click)="onDone(element)">
-        <mat-icon aria-hidden="false" aria-label="delete icon">done</mat-icon>
+      <button mat-flat-button color="primary" (click)="inProcess(element)">
+        <mat-icon aria-hidden="false" aria-label="process icon">keyboard_tab</mat-icon>
+        In process
       </button>
     </td>
   </ng-container>

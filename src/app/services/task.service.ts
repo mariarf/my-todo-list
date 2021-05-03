@@ -54,18 +54,24 @@ export class TaskService {
     return this.getData();
   }
 
-  setDone(task: TaskID){
+  setState(task: TaskID){
     console.log(task)
     return this.taskCollection.doc(task.id).update(task);
   }
 
-  getNotDoneTasks() {
+  getPendingTasks() {
     this.taskCollection = this.afs.collection<TaskI>('tasks', ref => {
-      return ref.where('state', '!=', 'Done');
+      return ref.where('state', '==', 'Pending');
     });
     return this.getData();
   }
 
+  getInProcessTasks() {
+    this.taskCollection = this.afs.collection<TaskI>('tasks', ref => {
+      return ref.where('state', '==', 'In process');
+    });
+    return this.getData();
+  }
   editTask(task: TaskID){
 
     return this.taskCollection.doc(task.id).update(task);
