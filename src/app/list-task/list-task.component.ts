@@ -10,34 +10,9 @@ import { TaskService } from '../services/task.service';
 })
 export class ListTaskComponent {
 
-  displayedColumns: string[] = ['task', 'state', 'timestamp', 'actions'];
-  dataSource = new MatTableDataSource();
-
-  @ViewChild(MatSort) sort: MatSort;
-
-  constructor(public taskService: TaskService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.taskService.getPendingTasks().subscribe(res => this.dataSource.data = res);
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-  }
-
-  onEdit(element) {
-    this.taskService.selectedEdit = element;
 
   }
-
-  onDelete(id:string){
-    this.taskService.deleteTask(id);
-  }
-
-  inProcess(element){
-    element.state = 'In process'
-    this.taskService.setState(element);
-
-  }
-
 }

@@ -1,40 +1,6 @@
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
-  <!-- Task Column -->
-  <ng-container matColumnDef="task">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Task </th>
-    <td mat-cell *matCellDef="let element"> {{element.task}} </td>
-  </ng-container>
-
-  <!-- State Column -->
-  <ng-container matColumnDef="state">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
-    <td mat-cell *matCellDef="let element"> {{element.state}} </td>
-  </ng-container>
-
-  <!-- Timestamp Column -->
-  <ng-container matColumnDef="timestamp">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Timestamp </th>
-    <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
-  </ng-container>
-
-  <!-- Actions Column-->
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let element">
-      <button mat-flat-button color="accent" (click)="onEdit(element)">
-        <mat-icon aria-hidden="false" aria-label="edit icon">edit</mat-icon>
-      </button>&nbsp;
-      <button mat-flat-button color="warn" (click)="onDelete(element.id)">
-        <mat-icon aria-hidden="false" aria-label="delete icon">delete</mat-icon>
-      </button>&nbsp;
-      <button mat-flat-button color="primary" (click)="inProcess(element)">
-        <mat-icon aria-hidden="false" aria-label="process icon">keyboard_tab</mat-icon>
-        In process
-      </button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<mat-tab-group>
+  <mat-tab label="Pending Tasks"><app-pending-task></app-pending-task></mat-tab>
+  <mat-tab label="In process Tasks"><app-inprocess-tasks></app-inprocess-tasks></mat-tab>
+  <mat-tab label="Historical"><app-historical-tasks></app-historical-tasks></mat-tab>
+  <mat-tab label="All"><app-all-tasks></app-all-tasks></mat-tab>
+</mat-tab-group>

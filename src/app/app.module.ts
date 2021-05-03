@@ -16,7 +16,10 @@ import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { HistoricalTasksComponent } from './historical-tasks/historical-tasks.component';
-import { AllTasksComponent } from './all-tasks/all-tasks.component'
+import { AllTasksComponent } from './all-tasks/all-tasks.component';
+import { AppRoutingModule } from './app-routing.module';
+import { InprocessTasksComponent } from './inprocess-tasks/inprocess-tasks.component';
+import { PendingTaskComponent } from './pending-task/pending-task.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { AllTasksComponent } from './all-tasks/all-tasks.component'
     FormComponent,
     CreateTaskComponent,
     HistoricalTasksComponent,
-    AllTasksComponent
+    AllTasksComponent,
+    InprocessTasksComponent,
+    PendingTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import { AllTasksComponent } from './all-tasks/all-tasks.component'
     AngularFireModule.initializeApp(environment.configFirebase),
     MaterialsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService} from '../services/task.service';
+import { Router, ActivatedRoute } from "@angular/router";
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -7,7 +9,7 @@ import { TaskService} from '../services/task.service';
 })
 export class FormComponent implements OnInit {
 
-  constructor(public task: TaskService) { }
+  constructor(public task: TaskService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +24,7 @@ export class FormComponent implements OnInit {
       state: '',
       timestamp: '',
     };
+    this.router.navigate(['/list-task']);
   }
 
 }
