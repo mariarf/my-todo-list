@@ -1,0 +1,15 @@
+<div class="container">
+  <form [formGroup]="taskForm" (ngSubmit)="onSaveForm()" novalidate>
+
+    <div class = "mb-10">
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="New task" type="text" formControlName="task" required>
+      </mat-form-field>
+    </div>
+    <div class="mb-2">
+      <button mat-flat-button color="primary" type="submit" class="btn btn-primary" [disabled]="!taskForm.valid">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>
