@@ -6,3 +6,17 @@ table{
 mat-form-field{
   width: 100%;
 }
+
+button {
+  display: table-cell;
+  margin-top: 2%;
+  margin-bottom: 2%;
+
+}
+
+
+td.mat-cell {
+  padding: 2px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
