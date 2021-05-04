@@ -10,7 +10,7 @@ import { TaskService } from '../services/task.service';
 })
 export class PendingTaskComponent {
 
-  displayedColumns: string[] = ['task', 'state', 'timestamp', 'actions'];
+  displayedColumns: string[] = ['task', 'category', 'timestamp', 'actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;

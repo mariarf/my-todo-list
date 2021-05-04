@@ -13,10 +13,8 @@ button {
   margin-bottom: 2%;
 }
 
-
-
 td.mat-cell {
-  padding: 2px;
+  padding: 5px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }

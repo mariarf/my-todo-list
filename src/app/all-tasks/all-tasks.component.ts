@@ -11,7 +11,7 @@ import { TaskService } from '../services/task.service';
 
 export class AllTasksComponent {
 
-  displayedColumns: string[] = ['task', 'state', 'timestamp', 'actions'];
+  displayedColumns: string[] = ['task', 'category', 'state',  'timestamp', 'actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;
@@ -28,7 +28,6 @@ export class AllTasksComponent {
 
   onEdit(element) {
     this.taskService.selectedEdit = element;
-
   }
 
   onDelete(id:string){

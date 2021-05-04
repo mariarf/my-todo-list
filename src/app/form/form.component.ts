@@ -1,29 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TaskService} from '../services/task.service';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
 
   constructor(public task: TaskService, private router: Router) { }
 
-  ngOnInit(): void {
-  }
-
   onSaveForm(){
-    if(this.task.selectedEdit != null){
-      this.task.editTask(this.task.selectedEdit);
-    }
+
+    this.task.editTask(this.task.selectedEdit);
+
     this.task.selectedEdit = {
       id: null,
       task: '',
       state: '',
       timestamp: '',
+      category: '',
     };
+
     this.router.navigate(['/list-task']);
   }
 

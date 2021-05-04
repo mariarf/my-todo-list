@@ -10,8 +10,7 @@ import { TaskService } from '../services/task.service';
 })
 export class InprocessTasksComponent {
 
-
-  displayedColumns: string[] = ['task', 'state', 'timestamp', 'actions'];
+  displayedColumns: string[] = ['task', 'category', 'timestamp', 'actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;
@@ -38,7 +37,6 @@ export class InprocessTasksComponent {
   onDone(element){
     element.state = 'Done'
     this.taskService.setState(element);
-
   }
 
 }

@@ -2,11 +2,16 @@
   <mat-form-field appearance="fill">
     <input matInput placeholder="Task" name="task" [(ngModel)]="this.task.selectedEdit.task">
   </mat-form-field>
+
   <mat-radio-group aria-label="Select an option" name="state" [(ngModel)]="this.task.selectedEdit.state">
     <mat-radio-button value="Pending" >Pending</mat-radio-button>
     <mat-radio-button value="In process">In process</mat-radio-button>
     <mat-radio-button value="Done">Done</mat-radio-button>
   </mat-radio-group>
+
+  <mat-form-field appearance="fill">
+    <input matInput placeholder="Category" name="category" [(ngModel)]="this.task.selectedEdit.category">
+  </mat-form-field>
 
   <button mat-flat-button color="primary" (click)= "onSaveForm()">
     <mat-icon>save</mat-icon>

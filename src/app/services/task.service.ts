@@ -19,12 +19,14 @@ export class TaskService {
     task: '',
     state: '',
     timestamp: '',
+    category: '',
   }
 
   public selectedAdd = {
     task: '',
     state: '',
     timestamp: '',
+    category: '',
   }
 
   constructor(private readonly afs:AngularFirestore) {
@@ -41,6 +43,10 @@ export class TaskService {
       }))
     );
   }
+  setState(task: TaskID){
+    console.log(task)
+    return this.taskCollection.doc(task.id).update(task);
+  }
 
   getAllTasks() {
     return this.tasks;
@@ -52,11 +58,6 @@ export class TaskService {
     });
 
     return this.getData();
-  }
-
-  setState(task: TaskID){
-    console.log(task)
-    return this.taskCollection.doc(task.id).update(task);
   }
 
   getPendingTasks() {

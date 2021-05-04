@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TaskService} from '../services/task.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-create-task',
@@ -9,31 +9,33 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
   styleUrls: ['./create-task.component.css']
 })
 
-export class CreateTaskComponent implements OnInit {
+export class CreateTaskComponent {
 
   public taskForm: FormGroup;
 
-
-  constructor(public task: TaskService, public formBuilder: FormBuilder) {
+  constructor(public task: TaskService, public formBuilder: FormBuilder, private router: Router) {
     this.taskForm = this.formBuilder.group({
       task: [''],
       state: ['Pending'],
-      timestamp: ['']
+      timestamp: [''],
+      category: ['']
     })
-  }
-
-  ngOnInit(): void {
   }
 
   onSaveForm(){
 
     this.taskForm.value.timestamp=new Date().toDateString()+ ", " + new Date().toLocaleTimeString();
+
     this.task.createTask(this.taskForm.value);
+
     this.taskForm = this.formBuilder.group({
       task: [''],
       state: ['Pending'],
-      timestamp: ['']
+      timestamp: [''],
+      category: ['']
     })
+
+    this.router.navigate(['/list-task']);
   }
 
 }
