@@ -19,7 +19,8 @@ import { HistoricalTasksComponent } from './historical-tasks/historical-tasks.co
 import { AllTasksComponent } from './all-tasks/all-tasks.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InprocessTasksComponent } from './inprocess-tasks/inprocess-tasks.component';
-import { PendingTaskComponent } from './pending-task/pending-task.component'
+import { PendingTaskComponent } from './pending-task/pending-task.component';
+import { CategoriesComponent } from './categories/categories.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PendingTaskComponent } from './pending-task/pending-task.component'
     HistoricalTasksComponent,
     AllTasksComponent,
     InprocessTasksComponent,
-    PendingTaskComponent
+    PendingTaskComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,

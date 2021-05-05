@@ -9,7 +9,13 @@ import { Router } from "@angular/router";
 })
 export class FormComponent {
 
+  public categories: any[];
+
   constructor(public task: TaskService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.task.getCategories().subscribe(res => this.categories = res);
+  }
 
   onSaveForm(){
 

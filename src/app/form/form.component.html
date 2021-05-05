@@ -10,8 +10,13 @@
   </mat-radio-group>
 
   <mat-form-field appearance="fill">
-    <input matInput placeholder="Category" name="category" [(ngModel)]="this.task.selectedEdit.category">
-  </mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select name="category" [(ngModel)]="this.task.selectedEdit.category">
+        <mat-option *ngFor="let category of categories" [value]="category.category" >
+          {{category.category}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
   <button mat-flat-button color="primary" (click)= "onSaveForm()">
     <mat-icon>save</mat-icon>

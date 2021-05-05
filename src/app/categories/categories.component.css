@@ -1,0 +1,30 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+table{
+  margin-left: 2%;
+  width: 96%;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+button {
+  display: table-cell;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+td.mat-cell {
+  padding: 5px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}

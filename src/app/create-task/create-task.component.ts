@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 export class CreateTaskComponent {
 
   public taskForm: FormGroup;
+  public categories: any[];
 
   constructor(public task: TaskService, public formBuilder: FormBuilder, private router: Router) {
     this.taskForm = this.formBuilder.group({
@@ -20,6 +21,10 @@ export class CreateTaskComponent {
       timestamp: [''],
       category: ['']
     })
+  }
+
+  ngOnInit(): void {
+    this.task.getCategories().subscribe(res => this.categories = res);
   }
 
   onSaveForm(){

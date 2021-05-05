@@ -1,0 +1,38 @@
+<div class="container">
+  <form [formGroup]="categoryForm" (ngSubmit)="onSaveForm()" novalidate>
+    <mat-form-field appearance="fill">
+        <input matInput placeholder="Category" type="text" formControlName="category" [(ngModel)]="this.taskService.selectedCategory.category" required>
+    </mat-form-field>
+    <button style="width: 100%; height: 75%; margin-top: 1px;" mat-flat-button color="primary" type="submit" class="btn btn-primary" [disabled]="!categoryForm.valid">
+      Create/Edit&nbsp;<mat-icon>add_task</mat-icon>
+    </button>
+  </form>
+</div>
+
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+   <!-- Category Column -->
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+    <td mat-cell *matCellDef="let element"><i>{{element.category}}</i></td>
+  </ng-container>
+
+  <!-- Actions Column-->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-flat-button color="accent" (click)="onEdit(element)">
+        <mat-icon aria-hidden="false" aria-label="edit icon">edit</mat-icon>
+      </button>&nbsp;
+      <button mat-flat-button color="warn" (click)="onDelete(element.id)">
+        <mat-icon aria-hidden="false" aria-label="delete icon">delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+

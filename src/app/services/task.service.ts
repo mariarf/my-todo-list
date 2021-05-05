@@ -3,8 +3,10 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TaskI } from '../../models/task.interface';
+import { CategoryI } from '../../models/category.interface';
 
 export interface TaskID extends TaskI { id: string;}
+export interface CategoryID extends CategoryI { id: string;}
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +31,20 @@ export class TaskService {
     category: '',
   }
 
+  public selectedCategory = {
+    id: null,
+    category: '',
+  }
+
+  private categoryCollection: AngularFirestoreCollection<CategoryI>;
+  categories: Observable<CategoryID[]>;
+
   constructor(private readonly afs:AngularFirestore) {
     this.taskCollection = afs.collection<TaskI>('tasks');
     this.tasks = this.getData();
+
+    this.categoryCollection = afs.collection<CategoryI>('category');
+    this.categories = this.getCategories();
   }
 
   getData(){
@@ -43,6 +56,7 @@ export class TaskService {
       }))
     );
   }
+
   setState(task: TaskID){
     console.log(task)
     return this.taskCollection.doc(task.id).update(task);
@@ -84,6 +98,28 @@ export class TaskService {
 
   createTask(task: TaskI){
     return this.taskCollection.add(task);
-
   }
+
+  getCategories(){
+    return this.categoryCollection.snapshotChanges().pipe(
+      map(actions => actions.map( a => {
+        const data = a.payload.doc.data() as CategoryI;
+        const id = a.payload.doc.id;
+        return { id, ...data};
+      }))
+    );
+  }
+
+  editCategory(category: CategoryID){
+    return this.categoryCollection.doc(category.id).update(category);
+  }
+
+  deleteCategory(id: string){
+    return this.categoryCollection.doc(id).delete();
+  }
+
+  createCategory(category: CategoryI){
+    return this.categoryCollection.add(category);
+  }
+
 }
