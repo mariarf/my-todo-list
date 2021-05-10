@@ -17,6 +17,8 @@
   Para ejecutar la aplicación en local utilizar las ordenes (desde la carpeta de la aplicación):
       `ng serve`  
       `ng serve --open`
+  
+  
   La segunda opción abre una pestaña en el navegador con la aplicación con dirección localhost:4200, en caso de usar la primera orden introduce en el navegador `http://localhost:4200/` y podrás ver la aplicación ejecutándose en tiempo real.
 
 # Hosting
@@ -24,7 +26,11 @@
   Para hostear nuevos cambios simplemente ejecuta las siguientes ordenes
       `ng build`
       `firebase deploy`
+      
+      
   *La primera orden crea una versión optimizada de la aplicación.*
+  
+  
   *Recuerda que para ejecutar firebase deploy debes tener instalado `firebase-tools`. Además, si es la primera vez que lo ejecutas antes debes iniciar sesión y ejecutar la orden `firebase init`. Siguiendo el siguiente enlace: [Deploy angular firebase](https://codigofacilito.com/articulos/deploy-angular-firebase) tienes explicado con detalle como hostear una aplicación de angular en firebase por primera vez.*
 
 # Directorios:
@@ -32,7 +38,7 @@ Dentro del directorio `src/app` se encuentran todos los componentes creados para
   - **app-routing.module.ts** es en donde se especifican las rutas de los componentes
   - **app.component.html** aquí se carga la tool-bar y las rutas definidas anteriormente con <router-oulet></router-oulet>
   - **all-task historical-task inprocess-tasks pending-tasks** contienen tablas que se cargan con las tareas dependiendo de su estado, el estado cargado es el que corresponde con los nombres de los componentes en sí. Las tablas se crean con angular material “Table” se ordenan de forma automática.
-  - **list-task* desde este componente se cargan los componentes mencionados justo arriba y se hace uso del angular material “Tabs” para mostrarlos de forma ordenada.
+  - **list-task** desde este componente se cargan los componentes mencionados justo arriba y se hace uso del angular material “Tabs” para mostrarlos de forma ordenada.
   - **categories** este componente es el que se utiliza para crear, editar y borrar categorías.
   - **create-task**  es el componente con la lógica para crear nuevas tareas.
   - **form** proporciona la vista al formulario para editar las tareas existentes. Se utiliza angular material “Form-field”, “Radio button” y “Select”.
@@ -44,7 +50,8 @@ Dentro del directorio `src/models` se declaran dos interfaces una para las tarea
 
 
 Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
-Se utilizo como referencia el siguiente video tutorial [Angular firebase CRUD y Angular material](https://www.youtube.com/watch?v=JEnLqlsEAbw&ab_channel=DominiCode).
+
+Se utilizó como referencia el siguiente video tutorial [Angular firebase CRUD y Angular material](https://www.youtube.com/watch?v=JEnLqlsEAbw&ab_channel=DominiCode).
 
 ## Further help
 
