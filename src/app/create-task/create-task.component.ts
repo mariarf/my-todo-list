@@ -29,7 +29,7 @@ export class CreateTaskComponent {
 
   onSaveForm(){
 
-    this.taskForm.value.timestamp=new Date().toDateString()+ ", " + new Date().toLocaleTimeString();
+    this.taskForm.value.timestamp=new Date().toLocaleString();
 
     this.task.createTask(this.taskForm.value);
 

@@ -3,6 +3,7 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { TaskService } from '../services/task.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import {MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-categories',
@@ -15,6 +16,7 @@ export class CategoriesComponent implements OnInit {
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   public categoryForm: FormGroup;
 
@@ -32,6 +34,7 @@ export class CategoriesComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   onEdit(element) {
@@ -51,6 +54,10 @@ export class CategoriesComponent implements OnInit {
       }
     }else{
       this.taskService.createCategory(this.categoryForm.value);
+      this.taskService.selectedCategory = {
+        id: null,
+        category: '',
+      }
     }
   }
 }

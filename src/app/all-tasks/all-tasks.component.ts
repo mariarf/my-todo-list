@@ -16,10 +16,13 @@ export class AllTasksComponent {
 
   @ViewChild(MatSort) sort: MatSort;
 
+  public categories: any[];
+
   constructor(public taskService: TaskService) { }
 
   ngOnInit(): void {
     this.taskService.getAllTasks().subscribe(res => this.dataSource.data = res);
+    this.taskService.getCategories().subscribe(res => this.categories = res);
   }
 
   ngAfterViewInit() {

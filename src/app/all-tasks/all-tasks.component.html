@@ -15,7 +15,13 @@
    <!-- Category Column -->
   <ng-container matColumnDef="category">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-    <td mat-cell *matCellDef="let element"><i>{{element.category}}</i></td>
+    <td mat-cell *matCellDef="let element">
+      <i *ngFor="let category of categories">
+        <i *ngIf="category.id == element.category">
+          {{category.category}}
+        </i>
+      </i>
+    </td>
   </ng-container>
 
   <!-- Timestamp Column -->

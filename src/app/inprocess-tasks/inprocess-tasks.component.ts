@@ -15,10 +15,13 @@ export class InprocessTasksComponent {
 
   @ViewChild(MatSort) sort: MatSort;
 
+  public categories: any[];
+
   constructor(public taskService: TaskService) { }
 
   ngOnInit(): void {
     this.taskService.getInProcessTasks().subscribe(res => this.dataSource.data = res);
+    this.taskService.getCategories().subscribe(res => this.categories = res);
   }
 
   ngAfterViewInit() {

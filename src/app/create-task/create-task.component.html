@@ -2,13 +2,13 @@
   <form [formGroup]="taskForm" (ngSubmit)="onSaveForm()" novalidate>
 
     <mat-form-field appearance="fill">
-      <input matInput placeholder="New task" type="text" formControlName="task" required>
+      <input matInput placeholder="New task *" type="text" formControlName="task" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Category</mat-label>
-      <mat-select formControlName="category">
-        <mat-option *ngFor="let category of categories" [value]="category.category" >
+      <mat-select formControlName="category" required>
+        <mat-option *ngFor="let category of categories" [value]="category.id" >
           {{category.category}}
         </mat-option>
       </mat-select>

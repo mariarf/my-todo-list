@@ -15,10 +15,13 @@ export class PendingTaskComponent {
 
   @ViewChild(MatSort) sort: MatSort;
 
+  public categories: any[];
+
   constructor(public taskService: TaskService) { }
 
   ngOnInit(): void {
     this.taskService.getPendingTasks().subscribe(res => this.dataSource.data = res);
+    this.taskService.getCategories().subscribe(res => this.categories = res);
   }
 
   ngAfterViewInit() {
