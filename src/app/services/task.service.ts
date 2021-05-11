@@ -58,7 +58,6 @@ export class TaskService {
   }
 
   setState(task: TaskID){
-    console.log(task)
     return this.taskCollection.doc(task.id).update(task);
   }
 

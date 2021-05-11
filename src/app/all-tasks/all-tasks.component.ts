@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { TaskService } from '../services/task.service';
+import {MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-all-tasks',
@@ -15,6 +16,7 @@ export class AllTasksComponent {
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   public categories: any[];
 
@@ -27,6 +29,7 @@ export class AllTasksComponent {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   onEdit(element) {
