@@ -7,9 +7,12 @@
 button{
   width: 100%;
   height: 75%;
-
 }
 
 mat-form-field {
   width: 100%;
+}
+
+mat-toolbar{
+  color: #3f51b5;
 }

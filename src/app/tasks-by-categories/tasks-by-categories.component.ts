@@ -3,29 +3,28 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { TaskService } from '../services/task.service';
 import { MatPaginator } from '@angular/material/paginator';
-
 @Component({
-  selector: 'app-pending-task',
-  templateUrl: './pending-task.component.html',
-  styleUrls: ['./pending-task.component.css']
+  selector: 'app-tasks-by-categories',
+  templateUrl: './tasks-by-categories.component.html',
+  styleUrls: ['./tasks-by-categories.component.css']
 })
-export class PendingTaskComponent {
+export class TasksByCategoriesComponent {
 
-  displayedColumns: string[] = ['task', 'category', 'timestamp', 'actions'];
+  displayedColumns: string[] = ['task', 'state', 'timestamp', 'actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  public categories: any[];
+  public category: any;
 
   panelOpenState = false;
 
   constructor(public taskService: TaskService) { }
 
   ngOnInit(): void {
-    this.taskService.getPendingTasks().subscribe(res => this.dataSource.data = res);
-    this.taskService.getCategories().subscribe(res => this.categories = res);
+    this.taskService.getTasksByCategory(this.taskService.selectedCategory.id).subscribe(res => this.dataSource.data = res);
+
   }
 
   ngAfterViewInit() {

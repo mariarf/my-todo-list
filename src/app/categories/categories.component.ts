@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { TaskService } from '../services/task.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import {MatPaginator} from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-categories',
@@ -22,7 +24,7 @@ export class CategoriesComponent implements OnInit {
 
   editCategory = document.getElementById('editCategory');
 
-  constructor(public taskService: TaskService, public formBuilder: FormBuilder) {
+  constructor(public taskService: TaskService, public formBuilder: FormBuilder, private _snackBar: MatSnackBar,) {
     this.categoryForm = this.formBuilder.group({
       category: ['']
     })
@@ -30,6 +32,10 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskService.getCategories().subscribe(res => this.dataSource.data = res);
+    this.taskService.selectedCategory = {
+      id: null,
+      category: '',
+    }
   }
 
   ngAfterViewInit() {
@@ -52,12 +58,17 @@ export class CategoriesComponent implements OnInit {
         id: null,
         category: '',
       }
+      this._snackBar.open("Category edited!", "Close",  {duration: 3000});
     }else{
       this.taskService.createCategory(this.categoryForm.value);
       this.taskService.selectedCategory = {
         id: null,
         category: '',
       }
+      this._snackBar.open("Category created!", "Close",  {duration: 3000});
     }
+  }
+  listOfTasks(element){
+    this.taskService.selectedCategory = element
   }
 }

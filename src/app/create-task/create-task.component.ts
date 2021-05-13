@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TaskService} from '../services/task.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from "@angular/router";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-task',
@@ -14,7 +14,7 @@ export class CreateTaskComponent {
   public taskForm: FormGroup;
   public categories: any[];
 
-  constructor(public task: TaskService, public formBuilder: FormBuilder, private router: Router) {
+  constructor(public task: TaskService, public formBuilder: FormBuilder, private _snackBar: MatSnackBar) {
     this.taskForm = this.formBuilder.group({
       task: [''],
       state: ['Pending'],
@@ -40,7 +40,7 @@ export class CreateTaskComponent {
       category: ['']
     })
 
-    this.router.navigate(['/list-task']);
+    this._snackBar.open("Task created!", "Close",  {duration: 3000});
   }
 
 }

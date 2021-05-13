@@ -109,6 +109,13 @@ export class TaskService {
     );
   }
 
+  getTasksByCategory(id){
+    this.taskCollection = this.afs.collection<TaskI>('tasks', ref => {
+      return ref.where('category', '==', id);
+    });
+    return this.getData();
+  }
+
   editCategory(category: CategoryID){
     return this.categoryCollection.doc(category.id).update(category);
   }

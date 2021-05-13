@@ -20,7 +20,8 @@ import { AllTasksComponent } from './all-tasks/all-tasks.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InprocessTasksComponent } from './inprocess-tasks/inprocess-tasks.component';
 import { PendingTaskComponent } from './pending-task/pending-task.component';
-import { CategoriesComponent } from './categories/categories.component'
+import { CategoriesComponent } from './categories/categories.component';
+import { TasksByCategoriesComponent } from './tasks-by-categories/tasks-by-categories.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CategoriesComponent } from './categories/categories.component'
     AllTasksComponent,
     InprocessTasksComponent,
     PendingTaskComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    TasksByCategoriesComponent
   ],
   imports: [
     BrowserModule,

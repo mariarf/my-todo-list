@@ -1,3 +1,8 @@
+<mat-toolbar>
+  <mat-icon>edit</mat-icon>&nbsp;
+  <span class="fill-remaining-space">Task: <i>{{this.task.selectedEdit.task}}</i></span>
+</mat-toolbar>
+
 <div class="container">
   <mat-form-field appearance="fill">
     <input matInput placeholder="Task" name="task" [(ngModel)]="this.task.selectedEdit.task">

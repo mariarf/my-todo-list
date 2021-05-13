@@ -1,25 +1,22 @@
-<p>
-  <mat-toolbar color="primary">
-    <span>List of Tasks by María Rodríguez</span>
-    <span class="spacer"></span>
-  </mat-toolbar>
-</p>
-
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-  <a class="navbar-brand" routerLink="" routerLinkActive="active">Tasks</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class=" navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/create" routerLinkActive="active">New task</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/categories" routerLinkActive="active">Categories</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <button mat-menu-item routerLink="">
+        <mat-icon>task</mat-icon>
+        <span>Tasks</span>
+      </button>
+      <button mat-menu-item routerLink="/categories">
+        <mat-icon>category</mat-icon>
+        <span>Categories</span>
+      </button>
+      <button mat-menu-item routerLink="/create">
+        <mat-icon>add</mat-icon>
+        <span>Create task</span>
+      </button>
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">List of Tasks by María Rodríguez</span>
+</mat-toolbar>

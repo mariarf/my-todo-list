@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TaskService} from '../services/task.service';
-import { Router } from "@angular/router";
+import { TaskService } from '../services/task.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-form',
@@ -11,25 +11,14 @@ export class FormComponent {
 
   public categories: any[];
 
-  constructor(public task: TaskService, private router: Router) { }
+  constructor(public task: TaskService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.task.getCategories().subscribe(res => this.categories = res);
   }
 
   onSaveForm(){
-
     this.task.editTask(this.task.selectedEdit);
-
-    this.task.selectedEdit = {
-      id: null,
-      task: '',
-      state: '',
-      timestamp: '',
-      category: '',
-    };
-
-    this.router.navigate(['/list-task']);
+    this._snackBar.open("Task edited!", "Close",  {duration: 3000});
   }
-
 }

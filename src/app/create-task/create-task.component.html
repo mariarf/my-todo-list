@@ -1,3 +1,8 @@
+<mat-toolbar>
+  <mat-icon>add</mat-icon>&nbsp;
+  <span class="fill-remaining-space"><u>Create task</u></span>
+</mat-toolbar>
+
 <div class="container">
   <form [formGroup]="taskForm" (ngSubmit)="onSaveForm()" novalidate>
 
@@ -14,10 +19,8 @@
       </mat-select>
     </mat-form-field>
 
-
     <button mat-flat-button color="primary" type="submit" class="btn btn-primary" [disabled]="!taskForm.valid">
       Add task&nbsp;<mat-icon>add_task</mat-icon>
     </button>
-
   </form>
 </div>

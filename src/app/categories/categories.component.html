@@ -1,14 +1,18 @@
+<mat-toolbar>
+  <mat-icon>category</mat-icon>&nbsp;
+  <span class="fill-remaining-space"><u>Categories</u></span>
+</mat-toolbar>
+
 <div class="container">
   <form [formGroup]="categoryForm" (ngSubmit)="onSaveForm()" novalidate>
     <mat-form-field appearance="fill">
-        <input matInput placeholder="Category" type="text" formControlName="category" [(ngModel)]="this.taskService.selectedCategory.category" required>
+        <input matInput placeholder="Create category" type="text" formControlName="category" [(ngModel)]="this.taskService.selectedCategory.category" required>
     </mat-form-field>
     <button style="width: 100%; height: 75%; margin-top: 1px;" mat-flat-button color="primary" type="submit" class="btn btn-primary" [disabled]="!categoryForm.valid">
       Create/Edit&nbsp;<mat-icon>add_task</mat-icon>
     </button>
   </form>
 </div>
-
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
@@ -27,6 +31,9 @@
       </button>&nbsp;
       <button mat-flat-button color="warn" (click)="onDelete(element.id)">
         <mat-icon aria-hidden="false" aria-label="delete icon">delete</mat-icon>
+      </button>&nbsp;
+      <button mat-flat-button color="primary" routerLink="/tasks-by-categories/{{element.id}}" (click)="listOfTasks(element)" >
+        <span class="material-icons">info</span>
       </button>
     </td>
   </ng-container>

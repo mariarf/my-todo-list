@@ -1,0 +1,43 @@
+<mat-toolbar>
+  <mat-icon>category</mat-icon>&nbsp;
+  <span class="fill-remaining-space">Category: <i>{{this.taskService.selectedCategory.category}}</i></span>
+</mat-toolbar>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- Task Column -->
+  <ng-container matColumnDef="task">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Task </th>
+    <td mat-cell *matCellDef="let element">{{element.task}}</td>
+  </ng-container>
+
+  <!-- Task Column -->
+  <ng-container matColumnDef="state">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+    <td mat-cell *matCellDef="let element"><i>{{element.state}}</i></td>
+  </ng-container>
+
+
+  <!-- Timestamp Column -->
+  <ng-container matColumnDef="timestamp">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Timestamp </th>
+    <td mat-cell *matCellDef="let element"><i>{{element.timestamp}}</i></td>
+  </ng-container>
+
+  <!-- Actions Column-->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-flat-button color="accent" routerLink="/update-task/{{element.id}}" (click)="onEdit(element)">
+        <mat-icon aria-hidden="false" aria-label="edit icon">edit</mat-icon>
+      </button>&nbsp;
+
+      <button mat-flat-button color="warn" (click)="onDelete(element.id)">
+        <mat-icon aria-hidden="false" aria-label="delete icon">delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[4, 8, 12, 16, 20, 24, 28, 32]" showFirstLastButtons></mat-paginator>
