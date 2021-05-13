@@ -9,5 +9,9 @@
   padding-top: 2%;
   padding-right: 2%;
   padding-left: 2%;
-  word-break:normal;
+  word-break: break-all;
+}
+
+.task{
+  word-break: break-all;
 }
