@@ -3,6 +3,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { TaskService } from '../services/task.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-tasks-by-categories',
   templateUrl: './tasks-by-categories.component.html',
@@ -20,7 +22,7 @@ export class TasksByCategoriesComponent {
 
   panelOpenState = false;
 
-  constructor(public taskService: TaskService) { }
+  constructor(public taskService: TaskService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.taskService.getTasksByCategory(this.taskService.selectedCategory.id).subscribe(res => this.dataSource.data = res);
@@ -39,6 +41,7 @@ export class TasksByCategoriesComponent {
 
   onDelete(id:string){
     this.taskService.deleteTask(id);
+    this._snackBar.open("Task deleted!", "Close",  {duration: 3000});
   }
 
   inProcess(element){

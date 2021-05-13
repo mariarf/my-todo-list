@@ -1,8 +1,6 @@
-<mat-toolbar>
-  <mat-icon>category</mat-icon>&nbsp;
-  <span class="fill-remaining-space"><u>Categories</u></span>
-</mat-toolbar>
-
+<div class="container-header">
+    <h3><mat-icon>category</mat-icon>&nbsp;<u>Categories</u></h3>
+</div>
 <div class="container">
   <form [formGroup]="categoryForm" (ngSubmit)="onSaveForm()" novalidate>
     <mat-form-field appearance="fill">

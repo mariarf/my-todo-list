@@ -1,7 +1,6 @@
-<mat-toolbar>
-  <mat-icon>add</mat-icon>&nbsp;
-  <span class="fill-remaining-space"><u>Create task</u></span>
-</mat-toolbar>
+<div class="container-header">
+    <h3><mat-icon>add</mat-icon>&nbsp;<u>Create task</u></h3>
+</div>
 
 <div class="container">
   <form [formGroup]="taskForm" (ngSubmit)="onSaveForm()" novalidate>

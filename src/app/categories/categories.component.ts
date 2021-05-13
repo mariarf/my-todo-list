@@ -24,7 +24,7 @@ export class CategoriesComponent implements OnInit {
 
   editCategory = document.getElementById('editCategory');
 
-  constructor(public taskService: TaskService, public formBuilder: FormBuilder, private _snackBar: MatSnackBar,) {
+  constructor(public taskService: TaskService, public formBuilder: FormBuilder, private _snackBar: MatSnackBar) {
     this.categoryForm = this.formBuilder.group({
       category: ['']
     })
@@ -49,6 +49,7 @@ export class CategoriesComponent implements OnInit {
 
   onDelete(id:string){
     this.taskService.deleteCategory(id);
+    this._snackBar.open("Category deleted!", "Close",  {duration: 3000});
   }
 
   onSaveForm(){

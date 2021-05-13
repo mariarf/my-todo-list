@@ -1,7 +1,7 @@
-<mat-toolbar>
-  <mat-icon>category</mat-icon>&nbsp;
-  <span class="fill-remaining-space">Category: <i>{{this.taskService.selectedCategory.category}}</i></span>
-</mat-toolbar>
+<div class="container-header">
+    <h3><mat-icon>category</mat-icon>&nbsp;Category: <i>{{this.taskService.selectedCategory.category}}</i></h3>
+</div>
+
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
   <!-- Task Column -->
