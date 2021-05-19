@@ -36,14 +36,14 @@
 # Directorios:
 Dentro del directorio `src/app` se encuentran todos los componentes creados para desarrollar la aplicación. De forma más específica:
   - **app-routing.module.ts** es en donde se especifican las rutas de los componentes
-  - **app.component.html** aquí se carga la tool-bar y las rutas definidas anteriormente con <router-oulet></router-oulet>
-  - **all-task historical-task inprocess-tasks pending-tasks** contienen tablas que se cargan con las tareas dependiendo de su estado, el estado cargado es el que corresponde con los nombres de los componentes en sí. Las tablas se crean con angular material “Table” se ordenan de forma automática.
+  - **app.component.html** aquí se carga la tool-bar y las rutas definidas anteriormente con ´<router-oulet></router-oulet>`
+  - **all-task historical-task inprocess-tasks pending-tasks** contienen tablas que se cargan con las tareas dependiendo de su estado, el estado cargado es el que corresponde con los nombres de los componentes en sí. Las tablas se crean con el angular material “Table” se ordenan de forma automática.
   - **list-task** desde este componente se cargan los componentes mencionados justo arriba y se hace uso del angular material “Tabs” para mostrarlos de forma ordenada.
   - **categories** este componente es el que se utiliza para crear, editar y borrar categorías.
   - **create-task**  es el componente con la lógica para crear nuevas tareas.
   - **form** proporciona la vista al formulario para editar las tareas existentes. Se utiliza angular material “Form-field”, “Radio button” y “Select”.
   - **materials** este componente se utiliza para cargar los imports necesarios para añadir los angular materials utilizados en el proyecto.
-  - **toolbar** como su nombre lo indica este componente añade la barra de navegación a la web.
+  - **toolbar** como su nombre lo indica este componente añade la barra de navegación a la web usando el angular material "Toolbar".
   - **services** dentro de este componente se definen los métodos que permitirán acceder y modificar las colecciones que se encuentran creadas en la base de datos de firebase.
 Dentro del directorio `src/enviroment.ts` se rellena toda la información necesaria para conectar el proyecto con la base de datos.
 Dentro del directorio `src/models` se declaran dos interfaces una para las tareas y otra para las categorías. Dichas interfaces sirven de ayuda para gestionar el manejo de los datos entre la aplicación y la base de datos en firebase.
