@@ -36,7 +36,7 @@
 # Directorios:
 Dentro del directorio `src/app` se encuentran todos los componentes creados para desarrollar la aplicación. De forma más específica:
   - **app-routing.module.ts** es en donde se especifican las rutas de los componentes
-  - **app.component.html** aquí se carga la tool-bar y las rutas definidas anteriormente con ´<router-oulet></router-oulet>`
+  - **app.component.html** aquí se carga la tool-bar y las rutas definidas anteriormente.
   - **all-task historical-task inprocess-tasks pending-tasks** contienen tablas que se cargan con las tareas dependiendo de su estado, el estado cargado es el que corresponde con los nombres de los componentes en sí. Las tablas se crean con el angular material “Table” se ordenan de forma automática.
   - **list-task** desde este componente se cargan los componentes mencionados justo arriba y se hace uso del angular material “Tabs” para mostrarlos de forma ordenada.
   - **categories** este componente es el que se utiliza para crear, editar y borrar categorías.
